@@ -10,22 +10,22 @@ rot13("SERR CVMMN!") should decode to FREE PIZZA!
 */
 
 //SOLUTION 1:
-const rot13 = str => {
-    return str.replace(/[A-Z]/g, L =>
-        String.fromCharCode((L.charCodeAt(0) % 26) + 65)
-    );
+const rot13 = (str) => {
+  return str.replace(/[A-Z]/g, (L) =>
+    String.fromCharCode((L.charCodeAt(0) % 26) + 65)
+  )
 }
 
 rot13('SERR CVMMN!') // -> FREE PIZZA!
 
 //SOLUTION 2:
-const rot13 = str => {
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    return str
-        .split('')
-        .map(char => {
-            const pos = alphabet.indexOf(char);
-            return pos >= 0 ? alphabet[(pos + 13) % 26] : char;
-        })
-        .join('');
+const rot13 = (str) => {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  return str
+    .split('')
+    .map((char) => {
+      const pos = alphabet.indexOf(char)
+      return pos >= 0 ? alphabet[(pos + 13) % 26] : char
+    })
+    .join('')
 }
