@@ -1,5 +1,4 @@
 //Flatten a nested array.You must account for varying levels of nesting.
-//Напишите функцию, которая преобразует глубокий массив в одномерный.
 
 
 //SOLUTION 1:
