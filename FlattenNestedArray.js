@@ -1,6 +1,21 @@
 //Flatten a nested array.You must account for varying levels of nesting.
+//Напишите функцию, которая преобразует глубокий массив в одномерный.
+
 
 //SOLUTION 1:
+
+const flatten = array =>
+ array.reduce((acc, el) => 
+  Array.isArray(el) 
+  ? acc.concat(...el)
+  : [...acc, el]
+ , [])
+
+const data = [1, 2, [3, 4, [5]]];
+console.log(flatten(data)); // [1, 2, 3, 4, 5]
+
+
+//SOLUTION 2:
 const flattenArray = (arr) => {
   let flat = [].concat(...arr)
   return flat.some(Array.isArray) ? flattenArray(flat) : flat
@@ -8,7 +23,7 @@ const flattenArray = (arr) => {
 
 flattenArray([1, [2], [3, [[4]]]]) // -> [1, 2, 3, 4]
 
-//SOLUTION 2:
+//SOLUTION 3:
 const flattenArray = (val, flatArr = []) => {
   val.forEach((item) =>
     Array.isArray(item) ? flattenArray(item, flatArr) : flatArr.push(item)
@@ -16,7 +31,7 @@ const flattenArray = (val, flatArr = []) => {
   return flatArr
 }
 
-//SOLUTION 3:
+//SOLUTION 4:
 const arr = [1, 2, [3, 4, [5, 6]]]
 
 const flatDeep = (arr, d = 1) => {
@@ -31,7 +46,7 @@ const flatDeep = (arr, d = 1) => {
 
 flatDeep(arr, Infinity) // -> [1, 2, 3, 4, 5, 6]
 
-//SOLUTION 4:
+//SOLUTION 5:
 const flatten = (arr, result = []) => {
   arr.forEach((i) =>
     Array.isArray(i) ? result.push(...flatten(i)) : result.push(i)
