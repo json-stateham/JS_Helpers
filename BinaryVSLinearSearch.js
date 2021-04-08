@@ -1,4 +1,4 @@
-const tenArray = Array.from(Array(10).keys())
+const tenArray = Array.from(Array(1000000).keys())
 
 // O(n) - LINEAR RUNTIME
 const linearSearch = (arr, target) => {
@@ -30,16 +30,16 @@ const binarySearch = (arr, target) => {
 }
 
 let beforeLinear = performance.now()
-linearSearch(tenArray, 5)
+linearSearch(tenArray, 567841)
 let afterLinear = performance.now()
 
 let beforeBinary = performance.now()
-binarySearch(tenArray, 5)
+binarySearch(tenArray, 567841)
 let afterBinary = performance.now()
 
 console.log('Milliseconds linear search:', afterLinear - beforeLinear)
 console.log('Milliseconds binary search:', afterBinary - beforeBinary)
 
 // RESULT:
-// => 'Milliseconds linear search:' 0.02500019036233425
-// => 'Milliseconds binary search:' 0.06500002928078175
+// => 'Milliseconds linear search:' 2.185000106692314
+// => 'Milliseconds binary search:' 0.054999953135848045
