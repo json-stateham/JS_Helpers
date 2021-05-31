@@ -15,7 +15,6 @@ const binarySearch = (arr, target) => {
   let endIndex = (arr.length) - 1;
 
   while (startIndex <= endIndex) {
-
     let pivot = Math.floor((startIndex + endIndex) / 2);
 
     if (arr[pivot] === target) {

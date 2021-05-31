@@ -2,18 +2,20 @@
 Intl.RelativeTimeFormat() to format relative time strings.
 */
 
-const relative = new Intl.RelativeTimeFormat(
-  'en',
+const relativeTime = new Intl.RelativeTimeFormat(
+  'ru',
   { style: 'long', numeric: 'auto' }
 )
 
-relative.format(3, 'day') // in 3 days
-relative.format(1, 'day') // tomorrow
-relative.format(-1, 'day') // yesterday
-relative.format(-2, 'day') // 2 days ago
-relative.format(100, 'year') // in 100 years
-relative.format(-1, 'year') // last year
-relative.format(0, 'year') // this year
-relative.format(1, 'year') // next year
-relative.format(-20, 'second') // 20 seconds ago
-relative.format(10, 'second') // in 10 seconds
+console.log(
+  relativeTime.format(3, 'day'), // через 3 дня
+  relativeTime.format(1, 'day'), // завтра
+  relativeTime.format(-1, 'day'), // вчера
+  relativeTime.format(-2, 'day'), // позавчера
+  relativeTime.format(100, 'year'), // через 100 лет
+  relativeTime.format(-1, 'year'), // в прошлом году
+  relativeTime.format(0, 'year'), // в этом году
+  relativeTime.format(1, 'year'), // в следующем году
+  relativeTime.format(-20, 'second'), // 20 секунд назад
+  relativeTime.format(10, 'second'), // через 10 секунд
+)
