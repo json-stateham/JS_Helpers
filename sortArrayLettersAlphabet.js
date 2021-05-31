@@ -1,5 +1,7 @@
 //Отсортировать буквы в алфавитном порядке
 
-const arr = ['a', 'd', 'c', 'a', 'z', 'g']
+const arrChars = ['a', 'e', 'h', 'd', 'c', 'a', 'z', 'g']
 
-const sortedAlphabet = arr.sort((a, b) => (a === b ? 0 : a > b ? 1 : -1))
+const sortAlphabet = arr => [...arr].sort((a, b) => a.localeCompare(b))
+
+console.log(sortAlphabet(arrChars)) // ["a","a","c","d","e","g","h","z"]

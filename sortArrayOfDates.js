@@ -1,4 +1,4 @@
-//Дан массив объектов с датами, отсортируйте даты по возрастанию.
+//Дан массив с датами, отсортируйте даты по возрастанию.
 
 const arr = [
   { date: '10.01.2017' },
@@ -8,18 +8,25 @@ const arr = [
   { date: '01.12.2013' }
 ]
 
-//SOLUTION 1:
+// 1
+const sortDates1 = dates => {
+  let temp = [...dates]
 
-let date = (s) => {
-  let [day, month, year] = s.split('.')
-  return new Date(year, --month, day)
+  const date = x => {
+    let [day, month, year] = x.split('.')
+    return new Date(year, --month, day)
+  }
+
+  return temp.sort((a, b) => date(a.date) - date(b.date))
 }
 
-let res = arr.sort((a, b) => date(a.date) - date(b.date))
+// 2
+const sortDates2 = dates => {
+  let temp = [...dates]
 
-//SOLUTION 2:
-let res = arr.sort(
-  (a, b) =>
-    new Date(a.date.split('.').reverse().join('/')) -
-    new Date(b.date.split('.').reverse().join('/'))
-)
+  const transform = x => x.date.split('.').reverse().join('/')
+
+  return temp.sort((a, b) =>
+    new Date(transform(a)) - new Date(transform(b))
+  )
+}
