@@ -1,3 +1,4 @@
+// 1
 const addition = (a, b) => {
   let result = 0
   let mask = 1
@@ -21,3 +22,21 @@ const addition = (a, b) => {
 }
 
 console.log(addition(1, 3)) // 1 + 3 = 4
+
+//2
+const addition = (a, b) => {
+  let carry = a & b
+  let result = a ^ b
+  let shiftedcarry
+
+  while (carry !== 0) {
+    // If you need the mathematical carry from addition,
+    // check the overflow from this shift.
+    shiftedcarry = carry << 1
+    carry = result & shiftedcarry
+    result = result ^ shiftedcarry
+  }
+  return result
+}
+
+console.log(addition(1000000, 3000000)) // 4000000
