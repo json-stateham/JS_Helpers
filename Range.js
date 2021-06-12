@@ -1,20 +1,28 @@
-const range = (start, stop, step) => {
-  return Array.from(
-    { length: (stop - start) / step + 1 },
-    (_, i) => start + i * step)
+const range = (from, to, step) => {
+  let res = []
+  let backward = false
+
+  if (from > to) {
+    [from, to] = [to, from]
+    backward = true
+  }
+
+  for (let i = from; i <= to; i += step) {
+    res.push(i)
+  }
+
+  if (backward) {
+    res.reverse()
+    return res
+  }
+
+  return res
 }
 
-// range 0..4
-range(0, 4, 1)
-// [0, 1, 2, 3, 4]
+console.log(range(1, 10, 2)) // [1, 3, 5, 7, 9]
+console.log(range(10, 1, 2)) // [9, 7, 5, 3, 1]
 
-// range 1..10 with step of 2
-range(1, 10, 2)
-// [1, 3, 5, 7, 9]
 
-// Generate the alphabet using Array.from 
-//making use of it being ordered as a sequence
-range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map((x) =>
-  String.fromCharCode(x)
-)
+// Generate the alphabet
+range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map((x) => String.fromCharCode(x))
 // ["A", "B", "C",  ... "X", "Y", "Z"]
