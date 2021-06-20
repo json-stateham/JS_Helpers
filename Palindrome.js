@@ -1,3 +1,14 @@
+// 1
+const isPalindrome1 = str => {
+  const loweredStr = str.toLowerCase().replace(/\s/g, '')
+  return [...loweredStr].reverse().join('') === loweredStr
+}
+
+console.log(
+  isPalindrome2('А роза упала на лапу Азора')
+) // true
+
+// 2
 const isPalindrome = str => {
   let loweredStr = str.toLowerCase().replace(/\s/g, '')
   let left = 0
@@ -13,5 +24,5 @@ const isPalindrome = str => {
 }
 
 console.log(
-  isPalindrome('А роза упала на лапу Азора')
+  isPalindrome2('А роза упала на лапу Азора')
 ) // true
