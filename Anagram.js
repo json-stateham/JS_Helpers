@@ -16,7 +16,7 @@ console.log(isAnagram1('finder', 'Fr * ;iend')) //true
 console.log(isAnagram1('bye', 'Hi')) //false
 
 // 2
-const isAnagram = (a, b) => {
+const isAnagram2 = (a, b) => {
   if (typeof a !== 'string' || typeof b !== 'string') {
     console.warn('Arguments must be a string')
   }
@@ -41,5 +41,5 @@ const isAnagram = (a, b) => {
   return true
 }
 
-console.log(isAnagram1('finder', 'Fr * ;iend')) //true
-console.log(isAnagram1('bye', 'Hi')) //false
+console.log(isAnagram2('finder', 'Fr * ;iend')) //true
+console.log(isAnagram2('bye', 'Hi')) //false
