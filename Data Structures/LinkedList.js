@@ -12,19 +12,18 @@ class LinkedList {
   }
 
   add(value) {
-    let node = new Node(value)
-    let current
+    const node = new Node(value)
 
     if (this.head === null) {
       this.head = node
     } else {
-      current = this.head
+      let current = this.head
 
       while (current.next) {
         current = current.next
       }
       current.next = node
-    }
+    }    
     this.size += 1
   }
 
