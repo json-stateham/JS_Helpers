@@ -31,7 +31,7 @@ class LinkedList {
   remove(value) {
     if (this.head.value === value) {
       this.head = this.head.next
-      return this.size += 1
+      return this.size -= 1
     }
 
     let prev = this.head
@@ -44,7 +44,7 @@ class LinkedList {
           prev.next = current.next
           return this.size -= 1
         }
-        
+
         prev = current
       }
     }
