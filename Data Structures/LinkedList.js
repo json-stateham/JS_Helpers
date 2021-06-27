@@ -28,6 +28,28 @@ class LinkedList {
     this.size += 1
   }
 
+  remove(value) {
+    if (this.head.value === value) {
+      this.head = this.head.next
+      return this.size += 1
+    }
+
+    let prev = this.head
+
+    while (prev) {
+      let current = prev.next
+
+      if (current) {
+        if (current.value === value) {
+          prev.next = current.next
+          return this.size -= 1
+        }
+        
+        prev = current
+      }
+    }
+  }
+
   insertAt(value, index) {
     if (index < 0 || index > this.size) {
       return console.warn('Enter a valid index')
@@ -81,40 +103,6 @@ class LinkedList {
     }
   }
 
-  remove(value) {
-    let current = this.head
-    let prev = null
-
-    while (current !== null) {
-      if (current.value === value) {
-        if (prev === null) {
-          this.head = current.next
-        } else {
-          prev.next = current.next
-        }
-        this.size -= 1
-        return current.value
-      }
-      prev = current
-      current = current.next
-    }
-    return -1
-  }
-
-  indexOf(value) {
-    let count = 0
-    let current = this.head
-
-    while (current !== null) {
-      if (current.value === value) {
-        return count
-      }
-      count += 1
-      current = current.next
-    }
-    return -1
-  }
-
   isEmpty() {
     return this.size === 0
   }
@@ -158,5 +146,6 @@ const list = new LinkedList()
 list.add(1)
 list.add(2)
 list.add(3)
+list.remove(1)
 list.insertAt(5, 1)
 list.printList()
