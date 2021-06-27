@@ -102,6 +102,38 @@ class LinkedList {
     }
   }
 
+  indexOf(el) {
+    let current = this.head
+    let index = -1
+    let indexFound = false
+
+    while (!indexFound && current) {
+      index++
+      if (current.value === el) {
+        indexFound = true
+      }
+      current = current.next
+    }
+    return indexFound ? index : -1
+  }
+
+  elementAt(indexToFind) {
+    let currentNode = this.head
+    let currentElem = null
+    let elemFound = false
+    let index = -1
+
+    while (!elemFound && currentNode) {
+      index++
+      currentElem = currentNode.value
+      if (index === indexToFind) {
+        elemFound = true
+      }
+      currentNode = currentNode.next
+    }
+    return elemFound ? currentElem : undefined
+  }
+
   isEmpty() {
     return this.size === 0
   }
@@ -146,5 +178,9 @@ list.add(1)
 list.add(2)
 list.add(3)
 list.remove(1)
+console.log(list.indexOf(1))
+console.log(list.indexOf(3))
+console.log(list.indexOf(2))
+console.log(list.elementAt(0))
 list.insertAt(5, 1)
 list.printList()
