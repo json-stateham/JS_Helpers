@@ -23,7 +23,7 @@ class LinkedList {
         current = current.next
       }
       current.next = node
-    }    
+    }
     this.size += 1
   }
 
@@ -47,6 +47,31 @@ class LinkedList {
         prev = current
       }
     }
+  }
+
+  addAt(index, value) {
+    if (index < 0 || index >= this.size) return false
+
+    let current = this.head
+
+    if (index > 0) {
+      let i = 0
+
+      while (i + 1 !== index) {
+        current = current.next
+        i++
+      }
+    }
+
+    const newNode = new Node(value)
+    newNode.next = current.next
+
+    if (index === 0) {
+      this.head = newNode
+    } else {
+      current.next = newNode
+    }
+    this.size += 1
   }
 
   insertAt(value, index) {
@@ -182,5 +207,5 @@ console.log(list.indexOf(1))
 console.log(list.indexOf(3))
 console.log(list.indexOf(2))
 console.log(list.elementAt(0))
-list.insertAt(5, 1)
+list.addAt(0, 11)
 list.printList()
