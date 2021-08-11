@@ -1,3 +1,10 @@
+// 1
+const fibbo = (n, a = 0, b = 1) => (n === 0 ? a : fibbo(n - 1, b, a + b))
+
+console.log(fibbo(999))
+
+
+// 2
 const fibonacci = n => {
   let a = 1
   let b = 0
@@ -12,6 +19,4 @@ const fibonacci = n => {
   return b
 }
 
-console.log(
-  fibonacci(1000)
-)
+console.log(fibonacci(1000))
