@@ -3,7 +3,7 @@ const range = (from, to, step) => {
   let backward = false
 
   if (from > to) {
-    [from, to] = [to, from]
+    ;[from, to] = [to, from]
     backward = true
   }
 
@@ -22,7 +22,8 @@ const range = (from, to, step) => {
 console.log(range(1, 10, 2)) // [1, 3, 5, 7, 9]
 console.log(range(10, 1, 2)) // [9, 7, 5, 3, 1]
 
-
 // Generate the alphabet
-range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map((x) => String.fromCharCode(x))
+const alphabetGenerator = range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map(
+  x => String.fromCharCode(x)
+)
 // ["A", "B", "C",  ... "X", "Y", "Z"]
