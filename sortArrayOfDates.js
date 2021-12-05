@@ -1,6 +1,6 @@
-//Дан массив с датами, отсортируйте даты по возрастанию.
+// sort dates by ascending
 
-const arr = [
+const datesObj = [
   { date: '10.01.2017' },
   { date: '21.12.2009' },
   { date: '05.11.2016' },
@@ -8,25 +8,12 @@ const arr = [
   { date: '01.12.2013' }
 ]
 
-// 1
-const sortDates1 = dates => {
-  let temp = [...dates]
-
-  const date = x => {
-    let [day, month, year] = x.split('.')
+// SOLUTION
+const sortDates = dates => {
+  const toISO = item => {
+    let [day, month, year] = item.split('.')
     return new Date(year, --month, day)
   }
 
-  return temp.sort((a, b) => date(a.date) - date(b.date))
-}
-
-// 2
-const sortDates2 = dates => {
-  let temp = [...dates]
-
-  const transform = x => x.date.split('.').reverse().join('/')
-
-  return temp.sort((a, b) =>
-    new Date(transform(a)) - new Date(transform(b))
-  )
+  return [...dates].sort((a, b) => toISO(a.date) - toISO(b.date))
 }
