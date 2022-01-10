@@ -7,7 +7,7 @@ through the list and swapping elements until it reaches the end of the list.
 Now the list is sorted. Selection sort has quadratic time complexity in all cases.
 */
 
-const array = [1, 4, 2, 8, 345, 123, 43];
+const array = [1, 4, -3, 2, 8, 345, 123, 43]
 
 function selectionSort(array) {
   let temp = [...array]
