@@ -1,26 +1,30 @@
 //SOLUTION 1:
-
-const deepCopyObj = JSON.parse(JSON.stringify(nestedArray))
-
-//SOLUTION 2:
-
-const deepCopy = (obj) => {
-  if (typeof obj !== 'object' || obj === null) {
-    return obj
+const deepCopy = obj => {
+  let aux = obj
+  if (obj && typeof obj === 'object') {
+    aux = new obj.constructor()
+    Object.getOwnPropertyNames(obj).forEach(
+      prop => (aux[prop] = deepCopy(obj[prop]))
+    )
   }
+  return aux
+}
 
-  let newObj = Array.isArray(obj) ? [] : {}
-
-  for (let key in obj) {
-    newObj[key] = deepCopy(obj[key])
+// SOLUTION 2:
+const deepCopy = orig => {
+  if (Array.isArray(orig)) {
+    return orig.map(elem => deepCopy(elem))
+  } else if (typeof orig === 'object' && orig !== null) {
+    return Object.fromEntries(
+      Object.entries(orig).map(([key, value]) => [key, deepCopy(value)])
+    )
+  } else {
+    return orig
   }
-
-  return newObj
 }
 
 //SOLUTION 3:
-
-let deepCopyVik = (obj) =>
+const deepCopyVik = obj =>
   typeof obj !== 'object' || obj === null
     ? obj
     : Object.keys(obj).reduce((acc, key) => {
@@ -28,12 +32,5 @@ let deepCopyVik = (obj) =>
         return acc
       }, new obj.constructor())
 
-//SOLUTION 4: 
-const deepCopy = obj => {
-  let aux = obj
-  if (obj && typeof obj === 'object') {
-    aux = new obj.constructor()
-    Object.getOwnPropertyNames(obj).forEach(prop => aux[prop] = deepCopy(obj[prop]))
-  }
-  return aux
-}
+//SOLUTION 4:
+const deepCopyObj = JSON.parse(JSON.stringify(nestedArray))

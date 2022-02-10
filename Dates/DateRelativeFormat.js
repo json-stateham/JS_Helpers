@@ -19,3 +19,15 @@ console.log(
   relativeTime.format(-20, 'second'), // 20 секунд назад
   relativeTime.format(10, 'second'), // через 10 секунд
 )
+
+const relativeTime = format => value =>
+  new Intl.RelativeTimeFormat('ru', { style: 'long', numeric: 'auto' }).format(
+    value,
+    format
+  )
+
+const relativeDay = relativeTime('day')
+
+console.log(
+  relativeDay(3) // через 3 дня
+)
