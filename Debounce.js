@@ -1,22 +1,18 @@
-function debounce(func, ms) {
-  let isCooldown = false
+const debounce = (fn, ms) => {
+  let isCooldown = false;
 
-  return function () {
-    if (isCooldown) return
-
-    func.apply(this, arguments)
-
-    isCooldown = true
-
-    setTimeout(() => isCooldown = false, ms)
+  return (...args) => {
+    if (isCooldown) return;
+    fn(...args);
+    isCooldown = true;
+    queueMicrotask(() => setTimeout(() => isCooldown = false, ms));
   }
 }
 
-let f = debounce(alert, 1000)
+const debouncedFn = debounce(console.log, 1000)
 
-f(1)
-f(2)
-
-setTimeout(() => f(3), 100)
-setTimeout(() => f(4), 1100)
-setTimeout(() => f(5), 1500)
+setTimeout(() => debouncedFn(1), 100) // 1
+setTimeout(() => debouncedFn(2), 1100) // ...
+setTimeout(() => debouncedFn(3), 100) // ...
+setTimeout(() => debouncedFn(4), 1100) // ...
+setTimeout(() => debouncedFn(5), 1500) // 5
