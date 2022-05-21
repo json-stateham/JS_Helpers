@@ -1,7 +1,7 @@
 const deepFreeze = obj => {
-  if (obj && typeof obj === 'object' && !Object.isFrozen(obj)) {
-    Object.freeze(obj)
-    Object.getOwnPropertyNames(obj).forEach(prop => deepFreeze(obj[prop]))
+  if (obj && obj.constructor.name === 'Object' && !Object.isFrozen(obj)) {
+    Object.freeze(obj);
+    Object.getOwnPropertyNames(obj).forEach(prop => deepFreeze(obj[prop]));
   }
   return obj
 }
