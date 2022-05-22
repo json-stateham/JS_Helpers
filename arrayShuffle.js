@@ -3,17 +3,14 @@ const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const randIndex = (len, i) => Math.floor(Math.random() * (len - i));
 
-const arrayShuffle = (array) => {
-  const copy = [...array];
-
-  copy.forEach((_, i, self) => {
+const arrayShuffle = array => {
+  array.forEach((_, i, self) => {
     const rand = randIndex(self.length, i);
     if (rand) {
-      [copy[i], copy[i + rand]] = [copy[i + rand], copy[i]];
+      [array[i], array[i + rand]] = [array[i + rand], array[i]];
     }
-  });
-
-  return copy;
-};
+  });  
+  return array;
+}
 
 console.log(arrayShuffle(sortedArray));
