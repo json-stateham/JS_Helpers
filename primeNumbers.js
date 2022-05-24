@@ -4,8 +4,6 @@
   5 = (6-1) , 7 = ((1*6) + 1), 13 = ((2*6) + 1)
 */
 
-const nums = Array.from({ length: 100 }, (_, i) => i + 1);
-
 const isPrime = n => {
   if (n <= 1) return false;
   if (n <= 3) return true;
@@ -13,10 +11,12 @@ const isPrime = n => {
 
  for (let i = 5; i * i <= n; i = i + 6) {
      if (n % i === 0 || n % (i + 2) === 0) return false;
- }
+    }
 
-  return true;
-}
+    return true;
+  }
+  
+const nums = Array.from({ length: 100 }, (_, i) => i + 1);
 
 const primeNumbers = nums.filter(isPrime);
 
