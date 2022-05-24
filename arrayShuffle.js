@@ -1,3 +1,5 @@
+// https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+
 const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // desired result is shuffled array: [2, 9, 3, 6, 8, 5, 1, 10, 7, 4]
 
