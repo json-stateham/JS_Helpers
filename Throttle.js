@@ -1,11 +1,11 @@
-const throttle = (fn, ms) => {
-  let prev = 0
+const throttle = (cb, ms) => {
+  let prev = 0;
 
   return () => {
-    const now = new Date().valueOf()
+    const now = Date.now();
     if (now - prev >= ms) {
-      fn()
-      prev = now
+      cb();
+      prev = now;
     }
   }
 }
