@@ -1,7 +1,3 @@
-/*
-Intl.DateTimeFormat() to format date and time strings
-*/
-
 const now = new Date()
 
 new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(now)
@@ -22,9 +18,3 @@ new Intl.DateTimeFormat('fr-CA', { dateStyle: 'long' }).format(now)
 const options = { weekday: 'long', hour: 'numeric'}
 new Intl.DateTimeFormat('en-US', options).format(new Date())
 // Saturday, 2 AM
-
-export const { format: formatPriceEUR } = new Intl.NumberFormat('en-GB', {
-  style: 'currency',
-  currency: 'USD'
-})
-// $1,000,000
