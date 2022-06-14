@@ -1,29 +1,12 @@
-const range = (from, to, step) => {
-  let res = []
-  let backward = false
+const range = ({ start = 0, end = 9, step = 1 }) => {
+  const result = [];
+  for (let i = start; i < end; i += step) result.push(i);
+  return result;
+};
 
-  if (from > to) {
-    ;[from, to] = [to, from]
-    backward = true
-  }
+range({ start: 1, end: 10, step: 2 }); // [1, 3, 5, 7, 9]
 
-  for (let i = from; i <= to; i += step) {
-    res.push(i)
-  }
-
-  if (backward) {
-    res.reverse()
-    return res
-  }
-
-  return res
-}
-
-console.log(range(1, 10, 2)) // [1, 3, 5, 7, 9]
-console.log(range(10, 1, 2)) // [9, 7, 5, 3, 1]
-
-// Generate the alphabet
-const alphabetGenerator = range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1).map(
-  x => String.fromCharCode(x)
-)
+const alphabet = range({ start: 'A'.charCodeAt(), end: 'Z'.charCodeAt() }).map(
+  charcode => String.fromCharCode(charcode)
+);
 // ["A", "B", "C",  ... "X", "Y", "Z"]
