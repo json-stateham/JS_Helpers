@@ -1,0 +1,14 @@
+{
+  "name": "js_helpers",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "ArrayChunkify.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/json-stateham/JS_Helpers.git"
+  },
+  "license": "ISC"
+}
