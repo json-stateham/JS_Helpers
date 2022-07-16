@@ -19,4 +19,4 @@ const fibonacci = n => {
   return b
 }
 
-console.log(fibonacci(1000))
+console.log(fibonacci(999))
