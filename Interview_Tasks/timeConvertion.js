@@ -7,11 +7,15 @@ const timeConversion = s => {
     str.replace(str.substring(0, 2), value).substring(0, 8);
 
   if (s.endsWith('AM')) {
-    if (hours === 12) return replaceWith(s, '00');
-    else return s.substring(0, 8);
+    if (hours === 12) {
+      return replaceWith(s, '00');
+    } else {
+      return s.substring(0, 8);
+    }
   } else {
-    if (hours === 12) return s.substring(0, 8);
-    else {
+    if (hours === 12) {
+      return s.substring(0, 8);
+    } else {
       hours += 12;
       return replaceWith(s, hours);
     }
