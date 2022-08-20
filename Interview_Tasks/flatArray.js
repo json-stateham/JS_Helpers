@@ -2,8 +2,7 @@
 write an implementation of an Array.prototype.flat
 */
 
-const nestedArray = [1, 2, [3, 4, [5]]];
-// desired result: 
+const nestedArray = ;
 
 const flatArray = array =>
   array.reduce(
@@ -12,4 +11,6 @@ const flatArray = array =>
     []
   );
 
-console.log(flatArray(nestedArray)); // [1, 2, 3, 4, 5]
+console.log(
+  flatArray([1, 2, [3, 4, [5]]]) // [1, 2, 3, 4, 5]
+);
