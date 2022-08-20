@@ -3,15 +3,13 @@
   ordering of numbers.
 */
 
-const reverseNumber = num =>
-  parseInt(
-    num.toString().split('').reverse().join('')
-  ) * Math.sign(num)
+const sum = (a, b) => a + b;
 
-console.log(
-  reverseNumber(15), // 51
-  reverseNumber(981), // 189
-  reverseNumber(500), // 5
-  reverseNumber(-15), // -51
-  reverseNumber(-90) // -9
-)
+const reverseNumber = number =>
+  parseInt(`${number}`.split('').reduceRight(sum)) * Math.sign(number);
+
+console.log(reverseNumber(15)); // 51
+console.log(reverseNumber(981)); // 189
+console.log(reverseNumber(500)); // 5
+console.log(reverseNumber(-15)); // -51
+console.log(reverseNumber(-90)); // -9
