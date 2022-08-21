@@ -1,7 +1,5 @@
 // Rotate a matrix to the left by 90 degrees.
 
-// Rotate a matrix to the left by 90 degrees.
-
 const rotateMatrix = mat => {
   const N = mat.length;
 
