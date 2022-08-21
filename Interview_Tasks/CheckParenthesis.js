@@ -1,25 +1,29 @@
-const checkParenthesis = parenthesis => {
+const checkParenthesis = text => {
   const parenthesisMap = {
     '(': ')',
-    '{': '}',
+    '<': '>',
     '[': ']',
   };
 
   const stack = [];
 
-  for (const char of parenthesis) {
+  for (const char of text) {
     if (parenthesisMap[char]) {
-      stack.push(char);
-    } else if (char !== parenthesisMap[stack.pop()]) {
+      stack.push(parenthesisMap[char]);
+    } else if (char === stack[stack.length - 1]) {
+      stack.pop();
+    } else if (char === ')' || char === ']' || char === '>') {
       return false;
-    }
+    }    
   }
+  
+  return true;
+}
 
-  return stack.length === 0;
-};
-
-console.log(checkParenthesis('(}')); // false
-console.log(checkParenthesis('([])')); // true
-console.log(checkParenthesis('[{]}')); // false
-console.log(checkParenthesis('(()')); // false
-console.log(checkParenthesis('[([])]')); // true
+console.log(checkParenthesis('---(++++)----')); // 1
+console.log(checkParenthesis('')); // 1
+console.log(checkParenthesis('before ( middle []) after ')); // 1
+console.log(checkParenthesis(') (')); // 0
+console.log(checkParenthesis('<( >)')); // 0
+console.log(checkParenthesis('( [ <> () ] <> )')); // 1
+console.log(checkParenthesis(' ( [)')); // 0
