@@ -7,9 +7,9 @@ const randomIndex = (len, i) => Math.floor(Math.random() * (len - i));
 const swap = (array, i, random) =>
   ([array[i], array[i + random]] = [array[i + random], array[i]]);
 
-const shuffleArray = array => {
+const shuffle = array => {
   array.forEach((_, i) => swap(array, i, randomIndex(array.length, i)));
   return array;
 };
 
-console.log(shuffleArray(sortedArray));
+console.log(shuffle(sortedArray));

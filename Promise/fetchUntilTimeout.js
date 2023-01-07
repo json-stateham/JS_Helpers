@@ -1,7 +1,7 @@
 // get the data faster than the timeout time expires
 
 const rejectByTimeout = ms =>
-  new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), ms));
+  new Promise((_, reject) => setTimeout(() => reject(new Error('Rejected by timeout')), ms));
 
 const fetchUntilTimeout = (url) =>
   Promise.race([fetch(url), rejectByTimeout(10)]);
