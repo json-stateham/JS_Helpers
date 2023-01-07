@@ -1,6 +1,4 @@
-const array = [3, 14, 7, 11, 6, 1, 21, 9, 14, 15, -1];
-
-const mergeHelper = (left, right) => {
+const merger = (left, right) => {
   const result = [];
   
   while (left.length || right.length) {
@@ -20,15 +18,16 @@ const mergeHelper = (left, right) => {
   return result;
 };
 
-// main function
 const mergeSort = arr => {
   if (arr.length <= 1) return arr;
 
-  const pivot = arr.length / 2;
-  const left = arr.slice(0, pivot);
-  const right = arr.slice(pivot, arr.length);
+  const mid = arr.length / 2;
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid, arr.length);
 
-  return mergeHelper(mergeSort(left), mergeSort(right));
+  return merger(mergeSort(left), mergeSort(right));
 };
 
-console.log(mergeSort(array));
+const unsortedArray = [3, 14, 7, 11, 6, 1, 21, 9, 14, 15, -1];
+
+console.log(mergeSort(unsortedArray));

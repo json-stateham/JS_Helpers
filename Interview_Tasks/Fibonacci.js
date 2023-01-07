@@ -1,9 +1,9 @@
-// 1
+// recursive
 const fib = (n, a = 0, b = 1) => (n === 0 ? a : fib(n - 1, b, a + b));
 
 console.log(fib(999));
 
-// 2
+// iterative
 const fibonacci = n => {
   let a = 1;
   let b = 0;

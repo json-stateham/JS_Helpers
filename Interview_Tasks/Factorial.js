@@ -1,6 +1,7 @@
 const factorial = n => {
-  if (n === 0) return 1;
-  else {
+  if (n === 0) {
+    return 1;
+  } else {
     const aux = factorial(n - 1);
     return n * aux;
   }

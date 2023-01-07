@@ -1,5 +1,5 @@
 const getRandomFromRange = (min, max) =>
-  Math.floor(Math.random() * (1 + max - min)) + min;
+  Math.floor(Math.random() * (max - min + 1)) + min;
 
 const randomChar = () => {
   const min = 'A'.charCodeAt();

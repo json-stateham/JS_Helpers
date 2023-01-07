@@ -3,20 +3,21 @@
 const mostRepeatedChar = str => {
   const hash = {};
 
-  for (const char of str) {
-    hash[char] = hash[char] + 1 || 1;
+  for (const c of str) {
+    hash[c] = hash[c] + 1 || 1;
   }
 
-  const result = Object.keys(hash).reduce((acc, char) => {
-    if (hash[char] > acc.maxRepeat) {
-      acc.maxRepeat = hash[char];
-      acc.repeatChar = char;
+  const res = { char: '', repeats: 0 };
+
+  for (const c of Object.keys(hash)) {
+    if (hash[c] > res.repeats) {
+      res.repeats = hash[c];
+      res.char = c;
     }
-    return acc;
-  }, { maxRepeat: 0, repeatChar: ''});
+  }
 
-  return `char '${result.repeatChar}' is repeated ${result.maxRepeat} times`
-}
+  return `The char '${res.char}' is repeated ${res.repeats} times`;
+};
 
-console.log(mostRepeatedChar('aaaaabccccd')) 
+console.log(mostRepeatedChar('aaaaabccccd'));
 // char 'a' is repeated 5 times

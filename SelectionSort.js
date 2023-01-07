@@ -7,29 +7,30 @@ through the list and swapping elements until it reaches the end of the list.
 Now the list is sorted. Selection sort has quadratic time complexity in all cases.
 */
 
-const array = [1, 4, -3, 2, 8, 345, 123, 43];
-
-function findMinIndex(arr, startIndex) {
-  let minValue = arr[startIndex];
-  let minIndex = startIndex;
+const findSmallest = (arr, startIndex) => {
+  let smallest = arr[0];
+  let smallestIndex = startIndex;
 
   for (let i = startIndex + 1; i < arr.length; i += 1) {
-    const current = arr[i];
-    if (current < minValue) {
-      minValue = current;
-      minIndex = i;
+    if (arr[i] < smallest) {
+      smallest = arr[i];
+      smallestIndex = i;
     }
   }
 
-  return minIndex;
-}
+  return smallestIndex;
+};
 
-function selectionSort(arr) {
+const swap = (arr, i, j) => ([arr[i], arr[j]] = [arr[j], arr[i]]);
+
+const selectionSort = arr => {
   for (let i = 0; i < arr.length; i += 1) {
-    const minIndex = findMinIndex(arr, i);
-    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    const smallestIndex = findSmallest(arr, i);
+    swap(arr, i, smallestIndex);
   }
   return arr;
-}
+};
+
+const array = [1, 4, -3, 2, 8, 345, 123, 43];
 
 console.log(selectionSort(array)); // [-3, 1, 2, 4, 8, 43, 123, 345]
