@@ -5,11 +5,9 @@ const palindrome = sentence => {
     if (chars[i] !== chars[k]) {
       return false;
     } else if (i === k) {
-      break;
+      return true;
     }
   }
-
-  return true;
 };
 
 console.log(palindrome('Was it a car or  a cat I  saw')); // true
