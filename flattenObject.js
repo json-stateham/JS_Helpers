@@ -11,7 +11,7 @@ const flattenObject = obj => {
       if (propName) {
         flattener(obj[prop], `${propName}.${prop}`);
       } else {
-        flattener(obj[prop], `${propName}${prop}`);
+        flattener(obj[prop], prop);
       }
     }
   };
