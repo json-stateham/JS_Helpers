@@ -1,4 +1,4 @@
-const flattenObject = obj => {
+export const flattenObject = obj => {
   const result = {};
 
   const flattener = (obj, propName = '') => {
@@ -19,18 +19,3 @@ const flattenObject = obj => {
 
   return result;
 };
-
-const dictionary = {
-  Key1: '1',
-  Key2: {
-    a: '2',
-    b: '3',
-    c: {
-      d: '3',
-      e: '1',
-    },
-  },
-};
-
-console.log(flattenObject(dictionary));
-// result: {'Key1': '1', 'Key2.a': '2','Key2.b' : '3', 'Key2.c.d' : '3', 'Key2.c.e' : '1'}

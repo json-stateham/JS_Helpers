@@ -1,4 +1,4 @@
-// to extract the method from the prototype and use it as a regular function
+// extract the method from the prototype and use it as a regular function
 
 const demethodize = Function.prototype.bind.bind(Function.prototype.call);
 

@@ -9,8 +9,4 @@ const pluralTime = (plurals, lang = 'en-US') => {
   return count => `${count} ${plurals[rule.select(count)]}`;
 };
 
-const pluralTimeEng = pluralTime(pluralRulesEng);
-
-console.log(pluralTimeEng(0)); // 0 minutes
-console.log(pluralTimeEng(1)); // 1 minute
-console.log(pluralTimeEng(5)); // 5 minutes
+export const pluralTimeEng = pluralTime(pluralRulesEng);

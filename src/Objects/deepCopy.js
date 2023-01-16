@@ -1,4 +1,4 @@
-const deepCopy = obj => {
+export const deepCopy = obj => {
   let aux = obj;
   
   if (obj && obj.constructor.name === 'Object') {
@@ -9,16 +9,3 @@ const deepCopy = obj => {
   }
   return aux;
 };
-
-const original = {
-  a: 1,
-  b: {
-    c: 2,
-  },
-};
-
-const copy = deepCopy(original);
-copy.b.c = 3;
-
-console.log("original hasn't mutated: ", original);
-console.log('copy: ', copy);

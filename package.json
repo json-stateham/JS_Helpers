@@ -2,13 +2,17 @@
   "name": "js_helpers",
   "version": "1.0.0",
   "type": "module",
-  "main": "ArrayChunkify.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/json-stateham/JS_Helpers.git"
   },
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^0.27.1"
+  }
 }
