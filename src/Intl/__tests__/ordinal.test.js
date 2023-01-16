@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { ordinal } from './ordinal';
+import { ordinal } from '../ordinal';
 
 describe('ordinal', () => {
   test('should return the ordinal number', () => {

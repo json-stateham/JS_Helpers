@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { deepFreeze } from './deepFreeze';
+import { deepFreeze } from '../deepFreeze';
 
 const frozenObj = deepFreeze({
   a: 1,

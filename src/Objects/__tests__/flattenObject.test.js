@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { flattenObject } from './flattenObject';
+import { flattenObject } from '../flattenObject';
 
 const dictionary = {
   Key1: '1',

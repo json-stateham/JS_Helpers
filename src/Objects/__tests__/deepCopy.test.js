@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { deepCopy } from './deepCopy';
+import { deepCopy } from '../deepCopy';
 
 const obj = {
   a: 1,

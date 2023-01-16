@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { pluralTimeEng } from './pluralTime';
+import { pluralTimeEng } from '../pluralTime';
 
 describe('pluralTime', () => {
   test('should return a pluralized time', () => {

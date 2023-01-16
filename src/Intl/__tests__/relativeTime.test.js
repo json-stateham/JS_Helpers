@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { relativeTime } from './relativeTime';
+import { relativeTime } from '../relativeTime';
 
 const dayRelative = relativeTime({ unit: 'day' });
 const yearRelative = relativeTime({ unit: 'year' });
