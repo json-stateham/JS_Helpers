@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { binarySearch } from './binarySearch'
+import { binarySearch } from '../binarySearch'
 
 const sortedArr = [1, 2, 3, 4, 5]
 
