@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { demethodize } from './demethodize';
+import { demethodize } from '../demethodize';
 
 describe('demethodize', () => {
   const toUpperCase = demethodize(String.prototype.toUpperCase);

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { compose } from './compose';
+import { compose } from '../compose';
 
 const splitBy = separator => str => str.split(separator);
 const joinBy = separator => arr => arr.join(separator);

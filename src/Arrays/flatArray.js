@@ -1,12 +1,8 @@
-/*
-write an implementation of an Array.prototype.flat
-*/
-
-const flatArray = array =>
-  array.reduce(
-    (acc, item) =>
-      Array.isArray(item) ? acc.concat(...item) : acc.concat(item),
-    []
-  );
-
-console.log(flatArray([1, 2, [3, 4, [5]]])); // [1, 2, 3, 4, 5]
+export const flatArray = (arr, depth = Infinity) =>
+  depth > 0
+    ? arr.reduce(
+        (res, item) =>
+          res.concat(Array.isArray(item) ? flatArray(item, depth - 1) : item),
+        []
+      )
+    : arr.slice();

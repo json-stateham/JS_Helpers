@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { pipeline } from './pipeline';
+import { pipeline } from '../pipeline';
 
 const splitBy = separator => str => str.split(separator);
 const joinBy = separator => arr => arr.join(separator);
