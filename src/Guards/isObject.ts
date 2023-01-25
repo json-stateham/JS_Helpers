@@ -1,0 +1,1 @@
+export const isObject = (obj: Record<string, unknown>) => obj && obj.constructor.name === 'Object'
