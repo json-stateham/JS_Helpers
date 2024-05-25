@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { getMonths } from './getMonths';
+import { getMonths } from '../getMonths';
 
 describe('getMonths', () => {
   test('should return an array of months', () => {
@@ -20,7 +20,7 @@ describe('getMonths', () => {
   });
 
   test('should return an array of months (short)', () => {
-    expect(getMonths('short')).toStrictEqual([
+    expect(getMonths({ variant: 'short' })).toStrictEqual([
       'Jan',
       'Feb',
       'Mar',
@@ -37,7 +37,7 @@ describe('getMonths', () => {
   });
 
   test('should return an array of month\'s digits', () => {
-    expect(getMonths('2-digit')).toStrictEqual([
+    expect(getMonths({ variant: '2-digit' })).toStrictEqual([
       '01',
       '02',
       '03',
