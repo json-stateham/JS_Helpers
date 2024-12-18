@@ -1,11 +1,11 @@
-const throttle = (cb, ms) => {
+const throttle = (fn, delay) => {
   let prev = 0;
 
-  return () => {
+  return (...args) => {
     const now = Date.now();
-    if (now - prev >= ms) {
-      cb();
+    if (now - prev >= delay) {
+      fn(...args);
       prev = now;
     }
-  }
-}
+  };
+};
