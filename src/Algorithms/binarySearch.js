@@ -1,16 +1,16 @@
 export const binarySearch = (arr, target) => {
-  let low = 0;
-  let high = arr.length - 1;
+  let start = 0;
+  let end = arr.length - 1;
 
-  while (low <= high) {
-    const mid = low + Math.floor((high - low) / 2);
-    
-    if (arr[mid] === target) return mid;
-    
-    if (arr[mid] < target) {
-      low = mid + 1;
+  while (start <= end) {
+    const pivot = start + Math.floor((end - start) / 2);
+
+    if (arr[pivot] === target) return pivot;
+
+    if (arr[pivot] < target) {
+      start = pivot + 1;
     } else {
-      high = mid - 1;
+      end = pivot - 1;
     }
   }
 

@@ -1,10 +1,10 @@
 const palindrome = sentence => {
   const chars = sentence.toLowerCase().replace(/\s+/g, '');
 
-  for (let i = 0, k = chars.length - 1; k > 0; i++, k--) {
-    if (chars[i] !== chars[k]) {
+  for (let start = 0, end = chars.length - 1; end > 0; start++, end--) {
+    if (chars[start] !== chars[end]) {
       return false;
-    } else if (i === k) {
+    } else if (start === end) {
       return true;
     }
   }

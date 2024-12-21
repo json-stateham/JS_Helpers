@@ -2,12 +2,12 @@
 // Return two numbers so that their sum equals the target, or return -1.
 
 const sumOfTwo = (array, target) => {
-  const map = new Map();
+  const map = {};
 
   for (const num of array) {
     const diff = target - num;
-    if (map.has(diff)) return [num, diff];
-    map.set(num, true);
+    if (map[diff]) return [num, diff];
+    map[num] = true;
   }
 
   return -1;
