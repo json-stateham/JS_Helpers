@@ -7,41 +7,45 @@ const matrix = [
   [16, 17, 18, 19, 20],
 ];
 
-const matrixSpiral = m => {
-  let topRow = 0,
-    leftCol = 0,
-    rightCol = m[0].length - 1,
-    btmRow = m.length - 1;
+const matrixSpiral = (matrix) => {
+  const result = [];
 
-  while (topRow < btmRow && leftCol < rightCol) {
-    for (let col = 0; col <= rightCol; col += 1) {
-      console.log(m[topRow][col]);
+  let top = 0;
+  let left = 0;
+  let right = matrix[0].length - 1;
+  let bottom = matrix.length - 1;
+
+  while (top <= bottom && left <= right) {
+    for (let i = left; i <= right; i += 1) {
+      result.push(matrix[top][i]);
     }
 
-    topRow += 1;
+    top += 1;
 
-    for (let row = topRow; row <= btmRow; row += 1) {
-      console.log(m[row][rightCol]);
+    for (let i = top; i <= bottom; i += 1) {
+      result.push(matrix[i][right]);
     }
 
-    rightCol -= 1;
+    right -= 1;
 
-    if (topRow <= btmRow) {
-      for (let col = rightCol; col >= 0; col -= 1) {
-        console.log(m[btmRow][col]);
+    if (top <= bottom) {
+      for (let i = right; i >= left; i -= 1) {
+        result.push(matrix[bottom][i]);
       }
 
-      btmRow -= 1;
+      bottom -= 1;
     }
 
-    if (leftCol <= rightCol) {
-      for (let row = btmRow; row > topRow; row -= 1) {
-        console.log(m[row][leftCol]);
+    if (left <= right) {
+      for (let i = bottom; i >= top; i -= 1) {
+        result.push(matrix[i][left]);
       }
 
-      leftCol += 1;
+      left += 1;
     }
   }
+
+  return result;
 };
 
 matrixSpiral(matrix);
